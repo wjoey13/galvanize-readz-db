@@ -13,8 +13,11 @@ app.listen(port, () => {
     console.log(`Port ${port} is now Active!`);
 });
 
-app.get('/', (req, res, next) =>   {
+app.get('/author', (req, res, next) =>   {
     queries.allAuthors().then(result => { res.send({data: result})})
+});
+app.get('/books', (req, res, next) =>   {
+    queries.allBooks().then(result => { res.send({data: result})})
 });
 
 app.get('/:id', (req,res) => {

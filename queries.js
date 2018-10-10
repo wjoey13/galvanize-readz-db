@@ -8,6 +8,9 @@ module.exports = {
     allAuthors(){
         return knex.select().from('author_info');
     },
+    allBooks(){
+        return knex.select().from('book_info');
+    },
     indiBooks(id){
         return knex.select('*').from('book_info').where('id',id);
     },
