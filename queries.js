@@ -15,7 +15,7 @@ module.exports = {
         return knex.select('*').from('book_info').where('id',id);
     },
     indiAuthors(id){
-        return knex.select().from('author_info').where('first',id);
+        return knex.select().from('author_info').where('id',id);
     },
     createAuthor(newAuthor){
         return knex('author_info').insert(newAuthor).returning('*');
