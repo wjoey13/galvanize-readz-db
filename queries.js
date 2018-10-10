@@ -5,12 +5,6 @@ const knex = require('knex')(databaseConnection);
  
 
 module.exports = {
-    getEverything() {return knex('authors_info')
-            .from('authors_info')
-            .orderBy('authors_info.id', 'asc')
-            .fullOuterJoin('novelist', 'author_info.id', 'novelist.authorID') 
-            .fullOuterJoin('book_info', 'book_info.id', 'novelist.bookID') 
-    },
     allAuthors(){
         return knex.select().from('author_info');
     },
@@ -40,5 +34,11 @@ module.exports = {
     },
     deleteBook(id) {
         return knex('book_info').where('id', id).delete();
+    },
+    getEverything() {return knex('author_info')
+    .from('author_info')
+    .orderBy('author_info.id', 'asc')
+    .fullOuterJoin('novelist', 'author_info.id', 'novelist.authorID') 
+    .fullOuterJoin('book_info', 'book_info.id', 'novelist.bookID') 
     }
 }
