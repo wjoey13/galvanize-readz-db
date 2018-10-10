@@ -14,10 +14,22 @@ module.exports = {
     indiAuthors(id){
         return knex.select().from('author_info').where('first',id);
     },
-    createAuthor(){
-        return knex('author_info').insert().returning('*');
+    createAuthor(newAuthor){
+        return knex('author_info').insert(newAuthor).returning('*');
     },
-    updateBooks(){
-        return knex('book_info').insert('book_info').returning('*');
+    updateAuthor(author, id){
+        return knex('author_info').update(author).where('id', id);
+    },
+    deleteAuthor(id) {
+        return knex('author_info').where('id', id).delete();
+    },
+    createBook(newBook){
+        return knex('book_info').insert(newBook).returning('*');
+    },
+    updateBook(books, id){
+        return knex('book_info').update(books).where('id', id);
+    },
+    deleteBook(id) {
+        return knex('book_info').where('id', id).delete();
     }
 }

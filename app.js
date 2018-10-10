@@ -31,6 +31,28 @@ app.post('/', (req, res) => {
     });
 });
 
+app.post('/', (req, res) => {
+    queries.createBook(req.body).then((data) => {
+    res.json({data});
+    });
+});
+
 app.put('/:id', (req,res) =>   {
-    queries.updateBooks(req.body, req.params.id).then(itemData => res.json({data: itemData}))
+    queries.updateAuthor(req.body, req.params.id).then(itemData => res.json({data: itemData}))
+});
+
+app.put('/:id', (req,res) =>   {
+    queries.updateBook(req.body, req.params.id).then(itemData => res.json({data: itemData}))
+});
+
+app.delete('/:id', (req, res) => {
+    queries.deleteAuthor(req.params.id).then((data) =>    {
+        res.json({data})
+    });
+});
+
+app.delete('/:id', (req, res) => {
+    queries.deleteBook(req.params.id).then((data) =>    {
+        res.json({data})
+    });
 });
