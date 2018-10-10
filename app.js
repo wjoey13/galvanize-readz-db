@@ -28,13 +28,13 @@ app.get('/:id/:id', (req,res) => {
     queries.indiAuthors(req.params.id).then(result => { res.send({data: result})})
 } );
 
-app.post('/', (req, res) => {
+app.post('/author', (req, res) => {
     queries.createAuthor(req.body).then((data) => {
     res.json({data});
     });
 });
 
-app.post('/', (req, res) => {
+app.post('/books', (req, res) => {
     queries.createBook(req.body).then((data) => {
     res.json({data});
     });
