@@ -10,7 +10,7 @@ module.exports = {
             .orderBy('authors_info.id', 'asc')
             .fullOuterJoin('novelist', 'author_info.id', 'novelist.authorID') 
             .fullOuterJoin('book_info', 'book_info.id', 'novelist.bookID') 
-    }
+    },
     allAuthors(){
         return knex.select().from('author_info');
     },
