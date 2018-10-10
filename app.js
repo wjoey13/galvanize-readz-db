@@ -48,13 +48,13 @@ app.put('/:id', (req,res) =>   {
     queries.updateBook(req.body, req.params.id).then(itemData => res.json({data: itemData}))
 });
 
-app.delete('/:id', (req, res) => {
+app.delete('/author/:id', (req, res) => {
     queries.deleteAuthor(req.params.id).then((data) =>    {
         res.json({data})
     });
 });
 
-app.delete('/:id', (req, res) => {
+app.delete('/books/:id', (req, res) => {
     queries.deleteBook(req.params.id).then((data) =>    {
         res.json({data})
     });
