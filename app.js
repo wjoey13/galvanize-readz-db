@@ -40,11 +40,11 @@ app.post('/books', (req, res) => {
     });
 });
 
-app.put('/:id', (req,res) =>   {
+app.put('/author/:id', (req,res) =>   {
     queries.updateAuthor(req.body, req.params.id).then(itemData => res.json({data: itemData}))
 });
 
-app.put('/:id', (req,res) =>   {
+app.put('/books/:id', (req,res) =>   {
     queries.updateBook(req.body, req.params.id).then(itemData => res.json({data: itemData}))
 });
 
