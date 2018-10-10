@@ -5,6 +5,12 @@ const knex = require('knex')(databaseConnection);
  
 
 module.exports = {
+    getEverything() {return knex('authors_info')
+            .from('authors_info')
+            .orderBy('authors_info.id', 'asc')
+            .fullOuterJoin('novelist', 'author_info.id', 'novelist.authorID') 
+            .fullOuterJoin('book_info', 'book_info.id', 'novelist.bookID') 
+    }
     allAuthors(){
         return knex.select().from('author_info');
     },

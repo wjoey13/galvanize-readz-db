@@ -5,14 +5,15 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const queries = require('./queries');
 
-
 app.use(bodyParser.json());
 app.use(cors());
 
 app.listen(port, () => {
     console.log(`Port ${port} is now Active!`);
 });
-
+app.get('/novelist',(req,res,next) =>{
+    queries.getEverything().then(result => { res.send({data: result})})
+})
 app.get('/author', (req, res, next) =>   {
     queries.allAuthors().then(result => { res.send({data: result})})
 });
