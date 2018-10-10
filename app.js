@@ -20,11 +20,11 @@ app.get('/books', (req, res, next) =>   {
     queries.allBooks().then(result => { res.send({data: result})})
 });
 
-app.get('/:id', (req,res) => {
+app.get('/books/:id', (req,res) => {
     queries.indiBooks(req.params.id).then(result => { res.send({data: result})})
 } );
 
-app.get('/:id/:id', (req,res) => {
+app.get('/author/:id', (req,res) => {
     queries.indiAuthors(req.params.id).then(result => { res.send({data: result})})
 } );
 
